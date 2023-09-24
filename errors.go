@@ -5,6 +5,5 @@ import (
 )
 
 const (
-	errNilReceiver                  = erorr.Error("jsonint: nil receiver")
-	errCannotMarshalNothingIntoJSON = erorr.Error("jsonint: cannot marshal jsonint.Nothing() into JSON")
+	errNilReceiver = erorr.Error("jsonint: nil receiver")
 )

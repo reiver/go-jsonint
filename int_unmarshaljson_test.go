@@ -3,6 +3,8 @@ package jsonint_test
 import (
 	"testing"
 
+	"encoding/json"
+
 	"sourcecode.social/reiver/go-jsonint"
 )
 
@@ -247,6 +249,82 @@ func TestInt_UnmarshalJSON(t *testing.T) {
 			t.Logf("JSON: %#v", test.JSON)
 			t.Logf("JSON: %q", test.JSON)
 			t.Logf("EXPECTED: %#v", test.Expected)
+			continue
+		}
+	}
+}
+
+func TestInt_UnmarshalJSON_fail(t *testing.T) {
+
+	tests := []struct{
+		JSON []byte
+	}{
+		{
+			JSON: nil,
+		},
+
+
+
+		{
+			JSON: []byte{},
+		},
+
+
+
+		{
+			JSON: []byte(""),
+		},
+
+
+
+		{
+			JSON: []byte(" "),
+		},
+		{
+			JSON: []byte("  "),
+		},
+		{
+			JSON: []byte("   "),
+		},
+
+
+
+		{
+			JSON: []byte("apple"),
+		},
+		{
+			JSON: []byte("banana"),
+		},
+		{
+			JSON: []byte("cherry"),
+		},
+
+
+
+		{
+			JSON: []byte("ONE"),
+		},
+		{
+			JSON: []byte("TWO"),
+		},
+		{
+			JSON: []byte("THREE"),
+		},
+		{
+			JSON: []byte("FOUR"),
+		},
+		{
+			JSON: []byte("FIVE"),
+		},
+	}
+
+	for testNumber, test := range tests {
+
+		var actual jsonint.Int
+
+		err := json.Unmarshal(test.JSON, &actual)
+		if nil == err {
+			t.Errorf("For test #%d, expected an error but did not actually get one.", testNumber)
 			continue
 		}
 	}

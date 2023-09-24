@@ -13,6 +13,13 @@ func TestInt_MarshalJSON(t *testing.T) {
 		Expected string
 	}{
 		{
+			Int: jsonint.Int{},
+			Expected: "0",
+		},
+
+
+
+		{
 			Int: jsonint.Int64(-65537),
 			Expected: "-65537",
 		},
@@ -189,22 +196,5 @@ func TestInt_MarshalJSON(t *testing.T) {
 				continue
 			}
 		}
-	}
-}
-
-func TestInt_MarshalJSON_fail(t *testing.T) {
-
-	var datum jsonint.Int
-
-	actualBytes, err := datum.MarshalJSON()
-	if nil == err {
-		t.Error("Expected an error but did not actually get one.")
-		return
-	}
-	if nil != actualBytes {
-		t.Error("Expected return bytes to be nil but actually wasn't.")
-		t.Logf("ACTUAL BYTES: %#v", actualBytes)
-		t.Logf("ACTUAL BYTES: %q", actualBytes)
-		return
 	}
 }

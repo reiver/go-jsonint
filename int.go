@@ -5,43 +5,45 @@ import (
 	"strconv"
 
 	"sourcecode.social/reiver/go-erorr"
-	"sourcecode.social/reiver/go-opt"
 )
 
 var _ json.Marshaler = Int{}
 var _ json.Unmarshaler = new(Int)
 
 type Int struct {
-	value opt.Optional[string]
-}
-
-func Nothing() Int {
-	return Int{}
+	value string
 }
 
 func Int64(value int64) Int {
+	if 0 == value {
+		return Int{}
+	}
+
 	return Int{
-		value: opt.Something(strconv.FormatInt(value, 10)),
+		value: strconv.FormatInt(value, 10),
 	}
 }
 
 func Uint64(value uint64) Int {
-	return Int{
-		value: opt.Something(strconv.FormatUint(value, 10)),
+	if 0 == value {
+		return Int{}
 	}
-}
 
-func (receiver Int) Get() (string, bool) {
-	return receiver.value.Get()
+	return Int{
+		value: strconv.FormatUint(value, 10),
+	}
 }
 
 func (receiver Int) MarshalJSON() ([]byte, error) {
-	value, found := receiver.value.Get()
-	if !found {
-		return nil, errCannotMarshalNothingIntoJSON
+	return []byte(receiver.String()), nil
+}
+
+func (receiver Int) String() string {
+	if "" == receiver.value {
+		return "0"
 	}
 
-	return []byte(value), nil
+	return receiver.value
 }
 
 func (receiver *Int) UnmarshalJSON(data []byte) error {
@@ -53,7 +55,14 @@ func (receiver *Int) UnmarshalJSON(data []byte) error {
 		return erorr.Errorf("jsonint: cannot unmarshal %q into value of type %T", data, Int{})
 	}
 
-	receiver.value = opt.Something(string(data))
+	s := string(data)
 
+	switch s {
+	case "0","-0","+0":
+		receiver.value = ""
+		return nil
+	}
+
+	receiver.value = string(data)
 	return nil
 }

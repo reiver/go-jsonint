@@ -38,7 +38,7 @@ import "sourcecode.social/reiver/go-jsonint"
 
 To install package **jsonint** do the following:
 ```
-GOPROXY=direc https://sourcecode.social/reiver/go-jsonint
+GOPROXY=direct https://sourcecode.social/reiver/go-jsonint
 ```
 
 ## Author

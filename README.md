@@ -26,3 +26,21 @@ var account Account
 
 err := json.Unmarshal(data, &account)
 ```
+
+## Import
+
+To import package **jsonint** use `import` code like the follownig:
+```
+import "sourcecode.social/reiver/go-jsonint"
+```
+
+## Installation
+
+To install package **jsonint** do the following:
+```
+GOPROXY=direc https://sourcecode.social/reiver/go-jsonint
+```
+
+## Author
+
+Package **jsonint** was written by [Charles Iliya Krempeaux](http://changelog.ca)

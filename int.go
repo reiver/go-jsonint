@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"sourcecode.social/reiver/go-erorr"
+	"github.com/reiver/go-erorr"
 )
 
 var _ json.Marshaler = Int{}

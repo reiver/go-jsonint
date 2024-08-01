@@ -3,7 +3,7 @@ package jsonint_test
 import (
 	"testing"
 
-	"sourcecode.social/reiver/go-jsonint"
+	"github.com/reiver/go-jsonint"
 )
 
 func TestInt_MarshalJSON(t *testing.T) {

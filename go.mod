@@ -1,4 +1,4 @@
-module sourcecode.social/reiver/go-jsonint
+module github.com/reiver/go-jsonint
 
 go 1.20
 

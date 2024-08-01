@@ -6,9 +6,9 @@ This helps to work-around that numbers in JSON are effectively "broken".
 
 ## Documention
 
-Online documentation, which includes examples, can be found at: http://godoc.org/sourcecode.social/reiver/go-jsonint
+Online documentation, which includes examples, can be found at: http://godoc.org/github.com/reiver/go-jsonint
 
-[![GoDoc](https://godoc.org/sourcecode.social/reiver/go-jsonint?status.svg)](https://godoc.org/sourcecode.social/reiver/go-jsonint)
+[![GoDoc](https://godoc.org/github.com/reiver/go-jsonint?status.svg)](https://godoc.org/github.com/reiver/go-jsonint)
 
 ## Example
 
@@ -31,14 +31,14 @@ err := json.Unmarshal(data, &account)
 
 To import package **jsonint** use `import` code like the follownig:
 ```
-import "sourcecode.social/reiver/go-jsonint"
+import "github.com/reiver/go-jsonint"
 ```
 
 ## Installation
 
 To install package **jsonint** do the following:
 ```
-GOPROXY=direct go get https://sourcecode.social/reiver/go-jsonint
+GOPROXY=direct go get https://github.com/reiver/go-jsonint
 ```
 
 ## Author

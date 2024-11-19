@@ -1,6 +1,6 @@
 package jsonint
 
-func isNumeric(data []byte) bool {
+func IsNumericBytes(data []byte) bool {
 	if len(data) <= 0 {
 		return false
 	}
@@ -26,4 +26,8 @@ func isNumeric(data []byte) bool {
 	}
 
 	return true
+}
+
+func IsNumericString(data string) bool {
+	return IsNumericBytes([]byte(data))
 }

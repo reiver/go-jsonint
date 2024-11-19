@@ -1,10 +1,13 @@
-package jsonint
+package jsonint_test
 
 import (
 	"testing"
+
+	"github.com/reiver/go-jsonint"
+
 )
 
-func TestIsNumeric(t *testing.T) {
+func TestIsNumericBytes(t *testing.T) {
 
 	tests := []struct{
 		Value []byte
@@ -272,7 +275,7 @@ func TestIsNumeric(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		actual := isNumeric(test.Value)
+		actual := jsonint.IsNumericBytes(test.Value)
 		expected := test.Expected
 
 		if expected != actual {

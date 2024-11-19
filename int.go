@@ -51,7 +51,7 @@ func (receiver *Int) UnmarshalJSON(data []byte) error {
 		return errNilReceiver
 	}
 
-	if !isNumeric(data) {
+	if !IsNumericBytes(data) {
 		return erorr.Errorf("jsonint: cannot unmarshal %q into value of type %T", data, Int{})
 	}
 

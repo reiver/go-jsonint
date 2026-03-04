@@ -26,6 +26,7 @@ func Bytes(value []byte) (Int, bool) {
 	}, true
 }
 
+// Int64 returns an [Int] with the same value of the provided int64.
 func Int64(value int64) Int {
 	if 0 == value {
 		var zero Int
@@ -66,6 +67,7 @@ func String(value string) (Int, bool) {
 	}, true
 }
 
+// Uint64 returns an [Int] with the same value of the provided uint64.
 func Uint64(value uint64) Int {
 	if 0 == value {
 		return Int{}

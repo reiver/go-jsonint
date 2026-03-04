@@ -92,6 +92,12 @@ func (receiver Int) MarshalJSON() ([]byte, error) {
 	return []byte(receiver.Normalize()), nil
 }
 
+// Normalize returns [Int] as a valid JSON integer.
+//
+// [Int] will accept (without error) strings that are valid integers but invalid JSON integers.
+// (For exampple: "+5".)
+// Normalize returns the valid JSON integer form.
+// (For example: "5" rather than "+5".)
 func (receiver Int) Normalize() string {
 	str := receiver.String()
 

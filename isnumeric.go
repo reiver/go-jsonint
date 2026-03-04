@@ -1,6 +1,15 @@
 package jsonint
 
+import (
+	"unsafe"
+)
+
 func IsNumericBytes(data []byte) bool {
+	var str string = unsafe.String(unsafe.SliceData(data), len(data))
+	return IsNumericString(str)
+}
+
+func IsNumericString(data string) bool {
 	if len(data) <= 0 {
 		return false
 	}
@@ -17,7 +26,6 @@ func IsNumericBytes(data []byte) bool {
 		}
 	}
 
-	// This is safe to do even though it is UTF-8 encoded Unicode.
 	for _, datum := range data {
 
 		if datum < '0' || '9' < datum {
@@ -26,8 +34,4 @@ func IsNumericBytes(data []byte) bool {
 	}
 
 	return true
-}
-
-func IsNumericString(data string) bool {
-	return IsNumericBytes([]byte(data))
 }

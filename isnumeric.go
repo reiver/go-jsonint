@@ -16,6 +16,9 @@ func IsNumericString(data string) bool {
 
 	// If it is a JSON string, then remove the beginning and closing quotation-marks.
 	if '"' == data[0] {
+		if len(data) < 3 {
+			return false
+		}
 		if '"' != data[len(data)-1] {
 			return false
 		}

@@ -87,6 +87,7 @@ func Uint64(value uint64) Int {
 	}
 }
 
+// MarshalJSON makes [Int] fit [json.Marshaler].
 func (receiver Int) MarshalJSON() ([]byte, error) {
 	return []byte(receiver.Normalize()), nil
 }
@@ -126,6 +127,7 @@ func (receiver Int) Normalize() string {
 	return str
 }
 
+// String makes [Int] fit [fmt.Stringer].
 func (receiver Int) String() string {
 	if "" == receiver.value {
 		return "0"
@@ -134,6 +136,7 @@ func (receiver Int) String() string {
 	return receiver.value
 }
 
+// UnmarshalJSON makes [Int] fit [json.Unmarshaler].
 func (receiver *Int) UnmarshalJSON(data []byte) error {
 	if nil == receiver {
 		return errNilReceiver

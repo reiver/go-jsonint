@@ -28,7 +28,8 @@ func Bytes(value []byte) (Int, bool) {
 
 func Int64(value int64) Int {
 	if 0 == value {
-		return Int{}
+		var zero Int
+		return zero
 	}
 
 	return Int{

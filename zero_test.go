@@ -12,8 +12,8 @@ func TestZero(t *testing.T) {
 
 	var nothing jsonint.Integer
 
-	var  int64zero jsonint.Integer = jsonint.IntFromInt64(0)
-	var uint64zero jsonint.Integer = jsonint.IntFromUint64(0)
+	var  int64zero jsonint.Integer = jsonint.IntegerFromInt64(0)
+	var uint64zero jsonint.Integer = jsonint.IntegerFromUint64(0)
 
 	var jsonzero jsonint.Integer
 	{

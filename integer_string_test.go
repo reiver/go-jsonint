@@ -18,97 +18,97 @@ func TestInt_String(t *testing.T) {
 			Expected: "0",
 		},
 
-		// from IntFromInt64
+		// from IntegerFromInt64
 		{
-			Int: jsonint.IntFromInt64(0),
+			Int: jsonint.IntegerFromInt64(0),
 			Expected: "0",
 		},
 		{
-			Int: jsonint.IntFromInt64(1),
+			Int: jsonint.IntegerFromInt64(1),
 			Expected: "1",
 		},
 		{
-			Int: jsonint.IntFromInt64(-1),
+			Int: jsonint.IntegerFromInt64(-1),
 			Expected: "-1",
 		},
 		{
-			Int: jsonint.IntFromInt64(123),
+			Int: jsonint.IntegerFromInt64(123),
 			Expected: "123",
 		},
 		{
-			Int: jsonint.IntFromInt64(-123),
+			Int: jsonint.IntegerFromInt64(-123),
 			Expected: "-123",
 		},
 		{
-			Int: jsonint.IntFromInt64(-65537),
+			Int: jsonint.IntegerFromInt64(-65537),
 			Expected: "-65537",
 		},
 
 		// from Uint64
 		{
-			Int: jsonint.IntFromUint64(0),
+			Int: jsonint.IntegerFromUint64(0),
 			Expected: "0",
 		},
 		{
-			Int: jsonint.IntFromUint64(1),
+			Int: jsonint.IntegerFromUint64(1),
 			Expected: "1",
 		},
 		{
-			Int: jsonint.IntFromUint64(456),
+			Int: jsonint.IntegerFromUint64(456),
 			Expected: "456",
 		},
 		{
-			Int: jsonint.IntFromUint64(65535),
+			Int: jsonint.IntegerFromUint64(65535),
 			Expected: "65535",
 		},
 
-		// from MustIntFromString — values are normalized on input
+		// from MustIntegerFromString — values are normalized on input
 		{
-			Int: jsonint.MustIntFromString("+1"),
+			Int: jsonint.MustIntegerFromString("+1"),
 			Expected: "1",
 		},
 		{
-			Int: jsonint.MustIntFromString("+123"),
+			Int: jsonint.MustIntegerFromString("+123"),
 			Expected: "123",
 		},
 		{
-			Int: jsonint.MustIntFromString("+0"),
+			Int: jsonint.MustIntegerFromString("+0"),
 			Expected: "0",
 		},
 		{
-			Int: jsonint.MustIntFromString("-0"),
+			Int: jsonint.MustIntegerFromString("-0"),
 			Expected: "0",
 		},
 		{
-			Int: jsonint.MustIntFromString("007"),
+			Int: jsonint.MustIntegerFromString("007"),
 			Expected: "7",
 		},
 		{
-			Int: jsonint.MustIntFromString("0123"),
+			Int: jsonint.MustIntegerFromString("0123"),
 			Expected: "123",
 		},
 		{
-			Int: jsonint.MustIntFromString("-007"),
+			Int: jsonint.MustIntegerFromString("-007"),
 			Expected: "-7",
 		},
 		{
-			Int: jsonint.MustIntFromString("-0123"),
+			Int: jsonint.MustIntegerFromString("-0123"),
 			Expected: "-123",
 		},
 		{
-			Int: jsonint.MustIntFromString("+007"),
+			Int: jsonint.MustIntegerFromString("+007"),
 			Expected: "7",
 		},
 		{
-			Int: jsonint.MustIntFromString("+0123"),
+			Int: jsonint.MustIntegerFromString("+0123"),
 			Expected: "123",
 		},
 		{
-			Int: jsonint.MustIntFromString("-000"),
+			Int: jsonint.MustIntegerFromString("-000"),
 			Expected: "0",
 		},
 		{
-			Int: jsonint.MustIntFromString("+000"),
+			Int: jsonint.MustIntegerFromString("+000"),
 			Expected: "0",
 		},
 	}

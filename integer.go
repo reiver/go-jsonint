@@ -20,13 +20,13 @@ type Integer struct {
 	value string
 }
 
-func IntFromBytes(value []byte) (Integer, bool) {
+func IntegerFromBytes(value []byte) (Integer, bool) {
 	var str string = string(value)
-	return IntFromString(str)
+	return IntegerFromString(str)
 }
 
-// IntFromInt64 returns an [Integer] with the same value of the provided int64.
-func IntFromInt64(value int64) Integer {
+// IntegerFromInt64 returns an [Integer] with the same value of the provided int64.
+func IntegerFromInt64(value int64) Integer {
 	if 0 == value {
 		var zero Integer
 		return zero
@@ -40,11 +40,11 @@ func IntFromInt64(value int64) Integer {
 	return result
 }
 
-// MustIntFromBytes is similr to [IntFromBytes] but it panic()s if the []byte does not represent an integer.
+// MustIntegerFromBytes is similr to [IntegerFromBytes] but it panic()s if the []byte does not represent an integer.
 //
-// See also [IntFromBytes].
-func MustIntFromBytes(value []byte) Integer {
-	result, ok := IntFromBytes(value)
+// See also [IntegerFromBytes].
+func MustIntegerFromBytes(value []byte) Integer {
+	result, ok := IntegerFromBytes(value)
 	if !ok {
 		panic( fmt.Sprintf("jsonint: %q is not an integer", string(value)) )
 	}
@@ -52,11 +52,11 @@ func MustIntFromBytes(value []byte) Integer {
 	return result
 }
 
-// MustIntFromString is similr to [IntFromString] but it panic()s if the string does not represent an integer.
+// MustIntegerFromString is similr to [IntegerFromString] but it panic()s if the string does not represent an integer.
 //
-// See also [IntFromString].
-func MustIntFromString(value string) Integer {
-	result, ok := IntFromString(value)
+// See also [IntegerFromString].
+func MustIntegerFromString(value string) Integer {
+	result, ok := IntegerFromString(value)
 	if !ok {
 		panic( fmt.Sprintf("jsonint: %q is not an integer", value) )
 	}
@@ -64,7 +64,7 @@ func MustIntFromString(value string) Integer {
 	return result
 }
 
-func IntFromString(value string) (Integer, bool) {
+func IntegerFromString(value string) (Integer, bool) {
 	if !IsIntegerString(value) {
 		var nada Integer
 		return nada, false
@@ -76,8 +76,8 @@ func IntFromString(value string) (Integer, bool) {
 	return result, true
 }
 
-// IntFromUint64 returns an [Integer] with the same value of the provided uint64.
-func IntFromUint64(value uint64) Integer {
+// IntegerFromUint64 returns an [Integer] with the same value of the provided uint64.
+func IntegerFromUint64(value uint64) Integer {
 	if 0 == value {
 		var zero Integer
 		return zero

@@ -2,7 +2,7 @@
 
 Package **jsonint** provides tools for working with integers in JSON.
 
-This helps to work-around that numbers in JSON are effectively "broken".
+This helps to work-around that numbers in JSON are effectively "broken" in many implementations, and some specifications
 
 ## Documention
 

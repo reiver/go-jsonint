@@ -79,7 +79,8 @@ func String(value string) (Int, bool) {
 // Uint64 returns an [Int] with the same value of the provided uint64.
 func Uint64(value uint64) Int {
 	if 0 == value {
-		return Int{}
+		var zero Int
+		return zero
 	}
 
 	return Int{

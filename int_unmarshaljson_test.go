@@ -12,7 +12,7 @@ func TestInt_UnmarshalJSON(t *testing.T) {
 
 	tests := []struct {
 		JSON []byte
-		Expected jsonint.Int
+		Expected jsonint.Integer
 	}{
 		{
 			JSON: []byte("-257"),
@@ -240,7 +240,7 @@ func TestInt_UnmarshalJSON(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		var actualInt jsonint.Int
+		var actualInt jsonint.Integer
 
 		err := actualInt.UnmarshalJSON(test.JSON)
 		if nil != err {
@@ -320,7 +320,7 @@ func TestInt_UnmarshalJSON_fail(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		var actual jsonint.Int
+		var actual jsonint.Integer
 
 		err := json.Unmarshal(test.JSON, &actual)
 		if nil == err {

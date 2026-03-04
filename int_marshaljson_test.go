@@ -9,11 +9,11 @@ import (
 func TestInt_MarshalJSON(t *testing.T) {
 
 	tests := []struct{
-		Int jsonint.Int
+		Int jsonint.Integer
 		Expected string
 	}{
 		{
-			Int: jsonint.Int{},
+			Int: jsonint.Integer{},
 			Expected: "0",
 		},
 

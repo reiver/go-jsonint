@@ -10,12 +10,12 @@ import (
 
 func TestZero(t *testing.T) {
 
-	var nothing jsonint.Int
+	var nothing jsonint.Integer
 
-	var  int64zero jsonint.Int = jsonint.IntFromInt64(0)
-	var uint64zero jsonint.Int = jsonint.IntFromUint64(0)
+	var  int64zero jsonint.Integer = jsonint.IntFromInt64(0)
+	var uint64zero jsonint.Integer = jsonint.IntFromUint64(0)
 
-	var jsonzero jsonint.Int
+	var jsonzero jsonint.Integer
 	{
 		var data []byte = []byte("0")
 

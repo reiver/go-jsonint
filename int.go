@@ -8,33 +8,33 @@ import (
 	"github.com/reiver/go-erorr"
 )
 
-var _ json.Marshaler = Int{}
-var _ json.Unmarshaler = new(Int)
+var _ json.Marshaler = Integer{}
+var _ json.Unmarshaler = new(Integer)
 
-// Int stores a JSON integer in precise, exact way.
+// Integer stores a JSON integer in precise, exact way.
 //
 // This is in constast to many JSON implementations that either store JSON integers in lossy, inexact ways, or ways that risk overflow or underflow.
-type Int struct {
+type Integer struct {
 	// Zero is always stored as an empty string.
 	// Everything else is stored in normalized format that is a valid JSON integer.
 	value string
 }
 
-func IntFromBytes(value []byte) (Int, bool) {
+func IntFromBytes(value []byte) (Integer, bool) {
 	var str string = string(value)
 	return IntFromString(str)
 }
 
-// IntFromInt64 returns an [Int] with the same value of the provided int64.
-func IntFromInt64(value int64) Int {
+// IntFromInt64 returns an [Integer] with the same value of the provided int64.
+func IntFromInt64(value int64) Integer {
 	if 0 == value {
-		var zero Int
+		var zero Integer
 		return zero
 	}
 
 	var str string = strconv.FormatInt(value, 10)
 
-	var result Int
+	var result Integer
 	result.set(str)
 
 	return result
@@ -43,7 +43,7 @@ func IntFromInt64(value int64) Int {
 // MustIntFromBytes is similr to [IntFromBytes] but it panic()s if the []byte does not represent an integer.
 //
 // See also [IntFromBytes].
-func MustIntFromBytes(value []byte) Int {
+func MustIntFromBytes(value []byte) Integer {
 	result, ok := IntFromBytes(value)
 	if !ok {
 		panic( fmt.Sprintf("jsonint: %q is not an integer", string(value)) )
@@ -55,7 +55,7 @@ func MustIntFromBytes(value []byte) Int {
 // MustIntFromString is similr to [IntFromString] but it panic()s if the string does not represent an integer.
 //
 // See also [IntFromString].
-func MustIntFromString(value string) Int {
+func MustIntFromString(value string) Integer {
 	result, ok := IntFromString(value)
 	if !ok {
 		panic( fmt.Sprintf("jsonint: %q is not an integer", value) )
@@ -64,34 +64,34 @@ func MustIntFromString(value string) Int {
 	return result
 }
 
-func IntFromString(value string) (Int, bool) {
+func IntFromString(value string) (Integer, bool) {
 	if !IsIntegerString(value) {
-		var nada Int
+		var nada Integer
 		return nada, false
 	}
 
-	var result Int
+	var result Integer
 	result.set(value)
 
 	return result, true
 }
 
-// IntFromUint64 returns an [Int] with the same value of the provided uint64.
-func IntFromUint64(value uint64) Int {
+// IntFromUint64 returns an [Integer] with the same value of the provided uint64.
+func IntFromUint64(value uint64) Integer {
 	if 0 == value {
-		var zero Int
+		var zero Integer
 		return zero
 	}
 
 	var str string = strconv.FormatUint(value, 10)
 
-	var result Int
+	var result Integer
 	result.set(str)
 
 	return result
 }
 
-func (receiver Int) get() string {
+func (receiver Integer) get() string {
 	if "" == receiver.value {
 		return "0"
 	}
@@ -99,12 +99,12 @@ func (receiver Int) get() string {
 	return receiver.value
 }
 
-// MarshalJSON makes [Int] fit [json.Marshaler].
-func (receiver Int) MarshalJSON() ([]byte, error) {
+// MarshalJSON makes [Integer] fit [json.Marshaler].
+func (receiver Integer) MarshalJSON() ([]byte, error) {
 	return []byte(receiver.get()), nil
 }
 
-func (receiver *Int) set(value string) {
+func (receiver *Integer) set(value string) {
 	if nil == receiver {
 		panic(errNilReceiver)
 	}
@@ -117,19 +117,19 @@ func (receiver *Int) set(value string) {
 	receiver.value = value
 }
 
-// String makes [Int] fit [fmt.Stringer].
-func (receiver Int) String() string {
+// String makes [Integer] fit [fmt.Stringer].
+func (receiver Integer) String() string {
 	return receiver.get()
 }
 
-// UnmarshalJSON makes [Int] fit [json.Unmarshaler].
-func (receiver *Int) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON makes [Integer] fit [json.Unmarshaler].
+func (receiver *Integer) UnmarshalJSON(data []byte) error {
 	if nil == receiver {
 		return errNilReceiver
 	}
 
 	if !IsIntegerBytes(data) {
-		return erorr.Errorf("jsonint: cannot unmarshal %q into value of type %T", data, Int{})
+		return erorr.Errorf("jsonint: cannot unmarshal %q into value of type %T", data, Integer{})
 	}
 
 	var str string = string(data)

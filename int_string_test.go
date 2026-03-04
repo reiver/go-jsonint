@@ -9,12 +9,12 @@ import (
 func TestInt_String(t *testing.T) {
 
 	tests := []struct{
-		Int jsonint.Int
+		Int jsonint.Integer
 		Expected string
 	}{
 		// zero value
 		{
-			Int: jsonint.Int{},
+			Int: jsonint.Integer{},
 			Expected: "0",
 		},
 

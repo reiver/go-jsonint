@@ -11,6 +11,9 @@ import (
 var _ json.Marshaler = Int{}
 var _ json.Unmarshaler = new(Int)
 
+// Int stores a JSON integer in precise, exact way.
+//
+// This is in constast to many JSON implementations that either store JSON integers in lossy, inexact ways, or ways that risk overflow or underflow.
 type Int struct {
 	value string
 }

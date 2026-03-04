@@ -41,6 +41,8 @@ func Int64(value int64) Int {
 	}
 }
 
+// MustBytes is similr to [Bytes] but it panic()s if the []byte does not represent an integer.
+//
 // See also [Bytes].
 func MustBytes(value []byte) Int {
 	result, ok := Bytes(value)
@@ -51,6 +53,8 @@ func MustBytes(value []byte) Int {
 	return result
 }
 
+// MustString is similr to [String] but it panic()s if the string does not represent an integer.
+//
 // See also [String].
 func MustString(value string) Int {
 	result, ok := String(value)

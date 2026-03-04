@@ -41,6 +41,7 @@ func Int64(value int64) Int {
 	}
 }
 
+// See also [Bytes].
 func MustBytes(value []byte) Int {
 	result, ok := Bytes(value)
 	if !ok {
@@ -50,6 +51,7 @@ func MustBytes(value []byte) Int {
 	return result
 }
 
+// See also [String].
 func MustString(value string) Int {
 	result, ok := String(value)
 	if !ok {

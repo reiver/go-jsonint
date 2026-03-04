@@ -146,7 +146,7 @@ func (receiver *Int) UnmarshalJSON(data []byte) error {
 		return erorr.Errorf("jsonint: cannot unmarshal %q into value of type %T", data, Int{})
 	}
 
-	s := string(data)
+	str := string(data)
 
 	switch s {
 	case "0","-0","+0":
@@ -154,6 +154,6 @@ func (receiver *Int) UnmarshalJSON(data []byte) error {
 		return nil
 	}
 
-	receiver.value = string(data)
+	receiver.value = str
 	return nil
 }

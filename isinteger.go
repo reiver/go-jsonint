@@ -4,12 +4,12 @@ import (
 	"unsafe"
 )
 
-func IsNumericBytes(data []byte) bool {
+func IsIntegerBytes(data []byte) bool {
 	var str string = unsafe.String(unsafe.SliceData(data), len(data))
-	return IsNumericString(str)
+	return IsIntegerString(str)
 }
 
-func IsNumericString(data string) bool {
+func IsIntegerString(data string) bool {
 	if len(data) <= 0 {
 		return false
 	}

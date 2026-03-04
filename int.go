@@ -65,7 +65,7 @@ func MustIntFromString(value string) Int {
 }
 
 func IntFromString(value string) (Int, bool) {
-	if !IsNumericString(value) {
+	if !IsIntegerString(value) {
 		var nada Int
 		return nada, false
 	}
@@ -128,7 +128,7 @@ func (receiver *Int) UnmarshalJSON(data []byte) error {
 		return errNilReceiver
 	}
 
-	if !IsNumericBytes(data) {
+	if !IsIntegerBytes(data) {
 		return erorr.Errorf("jsonint: cannot unmarshal %q into value of type %T", data, Int{})
 	}
 

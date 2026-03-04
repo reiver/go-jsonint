@@ -7,7 +7,7 @@ import (
 
 )
 
-func TestIsNumericBytes(t *testing.T) {
+func TestIsIntegerBytes(t *testing.T) {
 
 	tests := []struct{
 		Value []byte
@@ -275,7 +275,7 @@ func TestIsNumericBytes(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		actual := jsonint.IsNumericBytes(test.Value)
+		actual := jsonint.IsIntegerBytes(test.Value)
 		expected := test.Expected
 
 		if expected != actual {

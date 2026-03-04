@@ -134,6 +134,8 @@ func (receiver Int) Normalize() string {
 }
 
 // String makes [Int] fit [fmt.Stringer].
+//
+// See also [Normalize].
 func (receiver Int) String() string {
 	if "" == receiver.value {
 		return "0"

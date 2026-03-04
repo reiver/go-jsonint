@@ -16,146 +16,146 @@ func TestInt_UnmarshalJSON(t *testing.T) {
 	}{
 		{
 			JSON: []byte("-257"),
-			Expected: jsonint.Int64(-257),
+			Expected: jsonint.IntFromInt64(-257),
 		},
 		{
 			JSON: []byte("-256"),
-			Expected: jsonint.Int64(-256),
+			Expected: jsonint.IntFromInt64(-256),
 		},
 		{
 			JSON: []byte("-255"),
-			Expected: jsonint.Int64(-255),
+			Expected: jsonint.IntFromInt64(-255),
 		},
 		{
 			JSON: []byte("-254"),
-			Expected: jsonint.Int64(-254),
+			Expected: jsonint.IntFromInt64(-254),
 		},
 
 		{
 			JSON: []byte("-5"),
-			Expected: jsonint.Int64(-5),
+			Expected: jsonint.IntFromInt64(-5),
 		},
 		{
 			JSON: []byte("-4"),
-			Expected: jsonint.Int64(-4),
+			Expected: jsonint.IntFromInt64(-4),
 		},
 		{
 			JSON: []byte("-3"),
-			Expected: jsonint.Int64(-3),
+			Expected: jsonint.IntFromInt64(-3),
 		},
 		{
 			JSON: []byte("-2"),
-			Expected: jsonint.Int64(-2),
+			Expected: jsonint.IntFromInt64(-2),
 		},
 		{
 			JSON: []byte("-1"),
-			Expected: jsonint.Int64(-1),
+			Expected: jsonint.IntFromInt64(-1),
 		},
 
 
 
 		{
 			JSON: []byte("0"),
-			Expected: jsonint.Int64(0),
+			Expected: jsonint.IntFromInt64(0),
 		},
 		{
 			JSON: []byte("0"),
-			Expected: jsonint.Uint64(0),
+			Expected: jsonint.IntFromUint64(0),
 		},
 
 
 
 		{
 			JSON: []byte("1"),
-			Expected: jsonint.Int64(1),
+			Expected: jsonint.IntFromInt64(1),
 		},
 		{
 			JSON: []byte("1"),
-			Expected: jsonint.Uint64(1),
+			Expected: jsonint.IntFromUint64(1),
 		},
 		{
 			JSON: []byte("+1"),
-			Expected: jsonint.Int64(1),
+			Expected: jsonint.IntFromInt64(1),
 		},
 		{
 			JSON: []byte("+1"),
-			Expected: jsonint.Uint64(1),
+			Expected: jsonint.IntFromUint64(1),
 		},
 
 
 
 		{
 			JSON: []byte("2"),
-			Expected: jsonint.Int64(2),
+			Expected: jsonint.IntFromInt64(2),
 		},
 		{
 			JSON: []byte("2"),
-			Expected: jsonint.Uint64(2),
+			Expected: jsonint.IntFromUint64(2),
 		},
 		{
 			JSON: []byte("+2"),
-			Expected: jsonint.Int64(2),
+			Expected: jsonint.IntFromInt64(2),
 		},
 		{
 			JSON: []byte("+2"),
-			Expected: jsonint.Uint64(2),
+			Expected: jsonint.IntFromUint64(2),
 		},
 
 
 
 		{
 			JSON: []byte("3"),
-			Expected: jsonint.Int64(3),
+			Expected: jsonint.IntFromInt64(3),
 		},
 		{
 			JSON: []byte("3"),
-			Expected: jsonint.Uint64(3),
+			Expected: jsonint.IntFromUint64(3),
 		},
 		{
 			JSON: []byte("+3"),
-			Expected: jsonint.Int64(3),
+			Expected: jsonint.IntFromInt64(3),
 		},
 		{
 			JSON: []byte("+3"),
-			Expected: jsonint.Uint64(3),
+			Expected: jsonint.IntFromUint64(3),
 		},
 
 
 
 		{
 			JSON: []byte("4"),
-			Expected: jsonint.Int64(4),
+			Expected: jsonint.IntFromInt64(4),
 		},
 		{
 			JSON: []byte("4"),
-			Expected: jsonint.Uint64(4),
+			Expected: jsonint.IntFromUint64(4),
 		},
 		{
 			JSON: []byte("+4"),
-			Expected: jsonint.Int64(4),
+			Expected: jsonint.IntFromInt64(4),
 		},
 		{
 			JSON: []byte("+4"),
-			Expected: jsonint.Uint64(4),
+			Expected: jsonint.IntFromUint64(4),
 		},
 
 
 
 		{
 			JSON: []byte("5"),
-			Expected: jsonint.Int64(5),
+			Expected: jsonint.IntFromInt64(5),
 		},
 		{
 			JSON: []byte("5"),
-			Expected: jsonint.Uint64(5),
+			Expected: jsonint.IntFromUint64(5),
 		},
 		{
 			JSON: []byte("5"),
-			Expected: jsonint.Int64(+5),
+			Expected: jsonint.IntFromInt64(+5),
 		},
 		{
 			JSON: []byte("5"),
-			Expected: jsonint.Uint64(+5),
+			Expected: jsonint.IntFromUint64(+5),
 		},
 
 
@@ -165,76 +165,76 @@ func TestInt_UnmarshalJSON(t *testing.T) {
 
 		{
 			JSON: []byte("254"),
-			Expected: jsonint.Int64(254),
+			Expected: jsonint.IntFromInt64(254),
 		},
 		{
 			JSON: []byte("254"),
-			Expected: jsonint.Uint64(254),
+			Expected: jsonint.IntFromUint64(254),
 		},
 		{
 			JSON: []byte("+254"),
-			Expected: jsonint.Int64(254),
+			Expected: jsonint.IntFromInt64(254),
 		},
 		{
 			JSON: []byte("+254"),
-			Expected: jsonint.Uint64(254),
+			Expected: jsonint.IntFromUint64(254),
 		},
 
 
 
 		{
 			JSON: []byte("255"),
-			Expected: jsonint.Int64(255),
+			Expected: jsonint.IntFromInt64(255),
 		},
 		{
 			JSON: []byte("255"),
-			Expected: jsonint.Uint64(255),
+			Expected: jsonint.IntFromUint64(255),
 		},
 		{
 			JSON: []byte("+255"),
-			Expected: jsonint.Int64(255),
+			Expected: jsonint.IntFromInt64(255),
 		},
 		{
 			JSON: []byte("+255"),
-			Expected: jsonint.Uint64(255),
+			Expected: jsonint.IntFromUint64(255),
 		},
 
 
 
 		{
 			JSON: []byte("256"),
-			Expected: jsonint.Int64(256),
+			Expected: jsonint.IntFromInt64(256),
 		},
 		{
 			JSON: []byte("256"),
-			Expected: jsonint.Uint64(256),
+			Expected: jsonint.IntFromUint64(256),
 		},
 		{
 			JSON: []byte("+256"),
-			Expected: jsonint.Int64(256),
+			Expected: jsonint.IntFromInt64(256),
 		},
 		{
 			JSON: []byte("+256"),
-			Expected: jsonint.Uint64(256),
+			Expected: jsonint.IntFromUint64(256),
 		},
 
 
 
 		{
 			JSON: []byte("257"),
-			Expected: jsonint.Int64(257),
+			Expected: jsonint.IntFromInt64(257),
 		},
 		{
 			JSON: []byte("257"),
-			Expected: jsonint.Uint64(257),
+			Expected: jsonint.IntFromUint64(257),
 		},
 		{
 			JSON: []byte("+257"),
-			Expected: jsonint.Int64(257),
+			Expected: jsonint.IntFromInt64(257),
 		},
 		{
 			JSON: []byte("+257"),
-			Expected: jsonint.Uint64(257),
+			Expected: jsonint.IntFromUint64(257),
 		},
 	}
 

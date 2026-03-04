@@ -20,13 +20,13 @@ type Int struct {
 	value string
 }
 
-func Bytes(value []byte) (Int, bool) {
+func IntFromBytes(value []byte) (Int, bool) {
 	var str string = string(value)
-	return String(str)
+	return IntFromString(str)
 }
 
-// Int64 returns an [Int] with the same value of the provided int64.
-func Int64(value int64) Int {
+// IntFromInt64 returns an [Int] with the same value of the provided int64.
+func IntFromInt64(value int64) Int {
 	if 0 == value {
 		var zero Int
 		return zero
@@ -40,11 +40,11 @@ func Int64(value int64) Int {
 	return result
 }
 
-// MustBytes is similr to [Bytes] but it panic()s if the []byte does not represent an integer.
+// MustIntFromBytes is similr to [IntFromBytes] but it panic()s if the []byte does not represent an integer.
 //
-// See also [Bytes].
-func MustBytes(value []byte) Int {
-	result, ok := Bytes(value)
+// See also [IntFromBytes].
+func MustIntFromBytes(value []byte) Int {
+	result, ok := IntFromBytes(value)
 	if !ok {
 		panic( fmt.Sprintf("jsonint: %q is not an integer", string(value)) )
 	}
@@ -52,11 +52,11 @@ func MustBytes(value []byte) Int {
 	return result
 }
 
-// MustString is similr to [String] but it panic()s if the string does not represent an integer.
+// MustIntFromString is similr to [IntFromString] but it panic()s if the string does not represent an integer.
 //
-// See also [String].
-func MustString(value string) Int {
-	result, ok := String(value)
+// See also [IntFromString].
+func MustIntFromString(value string) Int {
+	result, ok := IntFromString(value)
 	if !ok {
 		panic( fmt.Sprintf("jsonint: %q is not an integer", value) )
 	}
@@ -64,7 +64,7 @@ func MustString(value string) Int {
 	return result
 }
 
-func String(value string) (Int, bool) {
+func IntFromString(value string) (Int, bool) {
 	if !IsNumericString(value) {
 		var nada Int
 		return nada, false
@@ -76,8 +76,8 @@ func String(value string) (Int, bool) {
 	return result, true
 }
 
-// Uint64 returns an [Int] with the same value of the provided uint64.
-func Uint64(value uint64) Int {
+// IntFromUint64 returns an [Int] with the same value of the provided uint64.
+func IntFromUint64(value uint64) Int {
 	if 0 == value {
 		var zero Int
 		return zero

@@ -20,158 +20,158 @@ func TestInt_MarshalJSON(t *testing.T) {
 
 
 		{
-			Int: jsonint.Int64(-65537),
+			Int: jsonint.IntFromInt64(-65537),
 			Expected: "-65537",
 		},
 		{
-			Int: jsonint.Int64(-65536),
+			Int: jsonint.IntFromInt64(-65536),
 			Expected: "-65536",
 		},
 		{
-			Int: jsonint.Int64(-65535),
+			Int: jsonint.IntFromInt64(-65535),
 			Expected: "-65535",
 		},
 
 		{
-			Int: jsonint.Int64(-255),
+			Int: jsonint.IntFromInt64(-255),
 			Expected: "-255",
 		},
 
 		{
-			Int: jsonint.Int64(-5),
+			Int: jsonint.IntFromInt64(-5),
 			Expected: "-5",
 		},
 		{
-			Int: jsonint.Int64(-4),
+			Int: jsonint.IntFromInt64(-4),
 			Expected: "-4",
 		},
 		{
-			Int: jsonint.Int64(-3),
+			Int: jsonint.IntFromInt64(-3),
 			Expected: "-3",
 		},
 		{
-			Int: jsonint.Int64(-2),
+			Int: jsonint.IntFromInt64(-2),
 			Expected: "-2",
 		},
 		{
-			Int: jsonint.Int64(-1),
+			Int: jsonint.IntFromInt64(-1),
 			Expected: "-1",
 		},
 		{
-			Int: jsonint.Int64(0),
+			Int: jsonint.IntFromInt64(0),
 			Expected: "0",
 		},
 		{
-			Int: jsonint.Int64(1),
+			Int: jsonint.IntFromInt64(1),
 			Expected: "1",
 		},
 		{
-			Int: jsonint.Int64(2),
+			Int: jsonint.IntFromInt64(2),
 			Expected: "2",
 		},
 		{
-			Int: jsonint.Int64(3),
+			Int: jsonint.IntFromInt64(3),
 			Expected: "3",
 		},
 		{
-			Int: jsonint.Int64(4),
+			Int: jsonint.IntFromInt64(4),
 			Expected: "4",
 		},
 		{
-			Int: jsonint.Int64(5),
+			Int: jsonint.IntFromInt64(5),
 			Expected: "5",
 		},
 
 		{
-			Int: jsonint.Int64(255),
+			Int: jsonint.IntFromInt64(255),
 			Expected: "255",
 		},
 
 		{
-			Int: jsonint.Int64(65535),
+			Int: jsonint.IntFromInt64(65535),
 			Expected: "65535",
 		},
 		{
-			Int: jsonint.Int64(65536),
+			Int: jsonint.IntFromInt64(65536),
 			Expected: "65536",
 		},
 		{
-			Int: jsonint.Int64(65537),
+			Int: jsonint.IntFromInt64(65537),
 			Expected: "65537",
 		},
 
 
 
 		{
-			Int: jsonint.Uint64(0),
+			Int: jsonint.IntFromUint64(0),
 			Expected: "0",
 		},
 		{
-			Int: jsonint.Uint64(1),
+			Int: jsonint.IntFromUint64(1),
 			Expected: "1",
 		},
 		{
-			Int: jsonint.Uint64(2),
+			Int: jsonint.IntFromUint64(2),
 			Expected: "2",
 		},
 		{
-			Int: jsonint.Uint64(3),
+			Int: jsonint.IntFromUint64(3),
 			Expected: "3",
 		},
 		{
-			Int: jsonint.Uint64(4),
+			Int: jsonint.IntFromUint64(4),
 			Expected: "4",
 		},
 		{
-			Int: jsonint.Uint64(5),
+			Int: jsonint.IntFromUint64(5),
 			Expected: "5",
 		},
 
 		{
-			Int: jsonint.Uint64(255),
+			Int: jsonint.IntFromUint64(255),
 			Expected: "255",
 		},
 		{
-			Int: jsonint.Uint64(256),
+			Int: jsonint.IntFromUint64(256),
 			Expected: "256",
 		},
 		{
-			Int: jsonint.Uint64(257),
+			Int: jsonint.IntFromUint64(257),
 			Expected: "257",
 		},
 
 		{
-			Int: jsonint.Uint64(65535),
+			Int: jsonint.IntFromUint64(65535),
 			Expected: "65535",
 		},
 		{
-			Int: jsonint.Uint64(65536),
+			Int: jsonint.IntFromUint64(65536),
 			Expected: "65536",
 		},
 		{
-			Int: jsonint.Uint64(65537),
+			Int: jsonint.IntFromUint64(65537),
 			Expected: "65537",
 		},
 
 		{
-			Int: jsonint.Uint64(4294967295),
+			Int: jsonint.IntFromUint64(4294967295),
 			Expected: "4294967295",
 		},
 		{
-			Int: jsonint.Uint64(4294967296),
+			Int: jsonint.IntFromUint64(4294967296),
 			Expected: "4294967296",
 		},
 		{
-			Int: jsonint.Uint64(4294967297),
+			Int: jsonint.IntFromUint64(4294967297),
 			Expected: "4294967297",
 		},
 
 		{
-			Int: jsonint.Uint64(18446744073709551614),
+			Int: jsonint.IntFromUint64(18446744073709551614),
 			Expected: "18446744073709551614",
 		},
 		{
-			Int: jsonint.Uint64(18446744073709551615),
+			Int: jsonint.IntFromUint64(18446744073709551615),
 			Expected: "18446744073709551615",
 		},
 	}

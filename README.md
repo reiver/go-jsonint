@@ -12,12 +12,27 @@ Online documentation, which includes examples, can be found at: http://godoc.org
 
 ## Example
 
-Here is an example:
+Here is an example using `jsonint.Integer`, which accepts bare JSON integers (ex: `123`):
 ```go
 type Account struct {
-	FollowersCount jsonint.Int `json:"followers_count"`
-	FollowingCount jsonint.Int `json:"following_count"`
-	StatusexCount  jsonint.Int `json:"statuses_count"`
+	FollowersCount jsonint.Integer `json:"followers_count"`
+	FollowingCount jsonint.Integer `json:"following_count"`
+	StatusesCount  jsonint.Integer `json:"statuses_count"`
+}
+
+// ...
+
+var account Account
+
+err := json.Unmarshal(data, &account)
+```
+
+`jsonint.Numeric` is similar to `jsonint.Integer` but also accepts JSON strings containing integer values (ex: both `123` and `"123"`):
+```go
+type Account struct {
+	FollowersCount jsonint.Numeric `json:"followers_count"`
+	FollowingCount jsonint.Numeric `json:"following_count"`
+	StatusesCount  jsonint.Numeric `json:"statuses_count"`
 }
 
 // ...

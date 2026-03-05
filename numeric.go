@@ -17,6 +17,9 @@ type Numeric struct {
 	integer Integer
 }
 
+// NumericFromBytes returns a [Numeric] with the same value of the provided []byte with a JSON integer value or a JSON string with an integer value inside of it..
+//
+// See also: [NumericFromString].
 func NumericFromBytes(value []byte) (Numeric, bool) {
 	var str string = string(value)
 	return NumericFromString(str)
@@ -36,6 +39,9 @@ func NumericFromUint64(value uint64) Numeric {
 	}
 }
 
+// NumericFromString returns a [Numeric] with the same value of the provided string with a JSON integer value or a JSON string with an integer value inside of it..
+//
+// See also: [NumericFromBytes].
 func NumericFromString(value string) (Numeric, bool) {
 	if !IsNumericString(value) {
 		var nada Numeric

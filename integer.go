@@ -20,6 +20,9 @@ type Integer struct {
 	value string
 }
 
+// IntegerFromBytes returns an [Integer] with the same value of the provided []byte with a JSON integer value.
+//
+// See also: [IntegerFromString].
 func IntegerFromBytes(value []byte) (Integer, bool) {
 	var str string = string(value)
 	return IntegerFromString(str)
@@ -64,6 +67,9 @@ func MustIntegerFromString(value string) Integer {
 	return result
 }
 
+// IntegerFromString returns an [Integer] with the same value of the provided string with a JSON integer value.
+//
+// See also: [IntegerFromBytes].
 func IntegerFromString(value string) (Integer, bool) {
 	if !IsIntegerString(value) {
 		var nada Integer
